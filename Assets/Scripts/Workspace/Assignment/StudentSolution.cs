@@ -49,17 +49,24 @@ namespace Assignment
 
         public int[] LCT03_InsertionSortAscending(int[] numbers)
         {
-            for (int i = 1; i < numbers.Length; i++)
+            int n = numbers.Length;
+            for (int i = 1; i < n; i++)
             {
                 int key = numbers[i];
                 int j = i - 1;
-                while (numbers[j] > key && j >= 0)
+                while (j >= 0 && numbers[j] > key)
                 {
                     numbers[j + 1] = numbers[j];
                     j--;
                 }
                 numbers[j + 1] = key;
             }
+
+            foreach (var n_ in numbers)
+            {
+                Debug.Log(n_);
+            }
+
             return numbers;
         }
 
@@ -103,8 +110,27 @@ namespace Assignment
         public int[] AS03_InsertionSortDescending(int[] numbers)
         {
 
+                int n = numbers.Length;
+                for (int i = 1; i < n; i++)
+                {
+                    int key = numbers[i];
+                    int j = i - 1;
+                    while (j >= 0 && numbers[j] < key)
+                    {
+                        numbers[j + 1] = numbers[j];
+                        j--;
+                    }
+                    numbers[j + 1] = key;
+                }
+
+                foreach (var n_ in numbers)
+                {
+                    Debug.Log(n_);
+                }
+
             return numbers;
-        }
+        }     
+
 
         public int AS04_FindTheSecondLargestNumber(int[] numbers)
         {
