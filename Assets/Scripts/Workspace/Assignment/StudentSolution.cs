@@ -98,7 +98,7 @@ namespace Assignment
             {
                 for (int j = 0; j < numbers.Length - 1 - i; j++)
                 {
-                    if (numbers[j] > numbers[j + 1]) // '>' for Ascending
+                    if (numbers[j] < numbers[j + 1]) // '>' for Ascending
                     {
                         (numbers[j], numbers[j + 1]) = (numbers[j + 1], numbers[j]);
                     }
@@ -129,12 +129,28 @@ namespace Assignment
                 }
 
             return numbers;
-        }     
+        }
 
 
         public int AS04_FindTheSecondLargestNumber(int[] numbers)
         {
-            return 0;
+            int largest = numbers[0];
+            int number = int.MinValue;
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] > largest)
+                {
+                    number = largest;
+                    largest = numbers[i];
+                }
+                else if (numbers[i] > number && numbers[i] < largest)
+                {
+                    number = numbers[i];
+                }
+            }
+
+            return number;
         }
 
         #endregion
